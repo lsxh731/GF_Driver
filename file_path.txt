@@ -1,0 +1,41 @@
+This file only for gfzk using imx6q-board!!!
+1	copy 'qt4' to /bin/ ---- system config file
+2	copy 'rcS' to /etc/init.d/ ---- system config file
+3	copy 'mdev.conf' to /etc/ ---- auto mount Udisk config
+4	copy 'hotplug' to /etc/ ---- auto mount Udisk config
+5	copy 'addata' to / or mkdir /addata ---- ad760602 data save file
+6	copy 'gfzk_*' to /qt4.7.1/ ---- gfzk using driver modular
+7	copy 'rmusb' to /bin/    ---- umonut usb for file copy to USB
+8	copy 'dellsta' to /bin/  ---- if file number of rows > 400 then....
+
+
+GFZK imx6q-board config
+1、add CAN lib and config file
+  cp -r can_tools/* /bin/
+  cp -r can_libs/* /lib/
+  cd /lib
+  ln -s libsocketcan.so.2.2.1 libsocketcan.so
+  ln -s libsocketcan.so.2.2.1 libsocketcan.so.2
+2、add driver modular for gfzk
+  copy gfzk_* /qt4.7.1/
+3、add font file 
+  cp wenquanyi_160_50.qpf /opt/qt-4.7.1/lib/fonts
+4、add software folder
+  cp /png /bin/
+5、add script file
+  cp dellsta /bin/
+  cp rmusb /bin/
+  chmod 777 /bin/dellsta
+  chmod 777 /bin/rmusb
+6、create ‘addata’ folder
+  mkdir /addata/
+7、auto add usbdisk config
+  cp mdev.conf /etc/
+  cp -r /hotplug /etc/
+8、add system config file
+  cp rcS /etc/init.d/
+  cp qt4 /bin/
+9、add lib for qt
+  cp libqwt6new.tar /usr/lib
+  cd /usr/lib
+  tar -vxf libqwt6new.tar
