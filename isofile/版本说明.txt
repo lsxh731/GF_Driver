@@ -1,0 +1,2 @@
+rootfs_normal 为讯为自带文件系统
+rootfs_gfzk 为专为GFZK配置的文件系统
